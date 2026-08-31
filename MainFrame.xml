@@ -1,0 +1,51 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Frame name="MainFrame" parent="UIParent" hidden="true" toplevel="true" movable="true" inherits="BackdropTemplate">
+		<Size x="500" y="200" />
+		<Anchors><Anchor x="-9" y="20" point="CENTER" /></Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture file="Interface\AddOns\DBGR\img\FrameBg" name="$parent_bg" alpha="0.8">
+					<Size x="500" y="200" />
+					<Anchors><Anchor point="CENTER" x="0" y="0" /></Anchors>
+				</Texture>
+				<FontString name="$parent_Title" inherits="" font="Fonts\MORPHEUS.TTF" text="" spacing="2" outline="NORMAL">
+					<Size x="500" y="30" />
+					<Anchors><Anchor x="0" y="-10" point="TOP" relativePoint="TOP" relativeTo="MainFrame" /></Anchors>
+					<FontHeight val="24" />
+					<Color g="0.7" r="1" />
+					<Shadow><Color r="0.502" g="1" b="0.502" /></Shadow>
+				</FontString>
+				<FontString name="$parent_Text" inherits="" font="Fonts\FRIZQT__.TTF" text="" spacing="1" outline="THICK" maxLines="5">
+					<Size x="500" y="130" />
+					<Anchors><Anchor x="0" y="0" point="TOP" relativePoint="BOTTOM" relativeTo="$parent_Title" /></Anchors>
+					<FontHeight val="17" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parent_BtnOK" inherits="MagicButtonTemplate" text="OK">
+				<Size x="50" y="30" />
+				<Anchors><Anchor y="5" point="BOTTOM" relativeTo="MainFrame" relativePoint="BOTTOM" /></Anchors>
+				<Scripts>
+					<OnLoad>self:RegisterForClicks("AnyUp")</OnLoad>  <OnClick>MainFrame:Hide();</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self:SetBackdrop({
+					bgFile = "Interface\\AddOns\\DBGR\\img\\FrameBg",
+					edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+					tile = true, tileSize = 16, edgeSize = 16,
+					insets = { left = 4, right = 4, top = 4, bottom = 4 }
+				})
+				self:SetMovable(true);
+				self:RegisterForDrag("LeftButton");
+				self:SetScale(0.9);
+			</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>
