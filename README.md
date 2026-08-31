@@ -76,7 +76,9 @@ Binary assets located in the `img` and `snd` directories are part of the addon i
 
 ## Issues
 
-If you encounter a bug or incompatibility after a World of Warcraft update, please report it through the repository issue tracker or the CurseForge project page.
+If you encounter a bug or incompatibility after a World of Warcraft update, the preferred way to report it is by email:
+
+**debuger@debuger.eu**
 
 When reporting an issue, please include:
 
@@ -92,7 +94,7 @@ The recommended way to install and update DBGR is through CurseForge:
 
 https://www.curseforge.com/wow/addons/dbgr
 
-The GitHub repository is primarily intended for source code access, development history and issue tracking.
+The GitHub repository is primarily intended for source code access and development history.
 
 ## Author
 
