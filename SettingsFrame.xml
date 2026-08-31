@@ -1,0 +1,113 @@
+<Ui xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/">
+	<Frame name="SettingsFrame" hidden="true" parent="UIParent" toplevel="true" inherits="BackdropTemplate">
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="Title" inherits="GameFontRed" outline="NORMAL">
+					<Size x="450" y="50" /><FontHeight val="16" /><Color r="1" />
+					<Anchors><Anchor point="TOP" relativeTo="SettingsFrame" relativePoint="TOP" /></Anchors>
+					<Shadow><Offset><AbsDimension x="1" y="-1" /></Offset><Color g="1" /></Shadow>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="SetNotifySounds" inherits="ChatConfigCheckButtonTemplate">
+				<Size x="25" y="25" />
+				<Anchors><Anchor x="30" y="-30" point="TOPLEFT" relativeTo="Title" relativePoint="BOTTOMLEFT" /></Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" parentKey="Text" inherits="GameFontNormalSmall" text="" justifyH="LEFT">
+							<Anchors><Anchor x="10" point="LEFT" relativePoint="RIGHT" /></Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>OnClick_SetNotifySounds(self);</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="SetAHNotify" inherits="ChatConfigCheckButtonTemplate">
+				<Size x="25" y="25" />
+				<Anchors><Anchor y="-60" point="BOTTOM" relativeTo="SetNotifySounds" relativePoint="TOP" /></Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" parentKey="Text" inherits="GameFontNormalSmall" text="" justifyH="LEFT">
+							<Anchors><Anchor x="10" point="LEFT" relativePoint="RIGHT" /></Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>OnClick_SetAHNotify(self);</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="SetAfkNotify" inherits="ChatConfigCheckButtonTemplate">
+				<Size x="25" y="25" />
+				<Anchors><Anchor y="-60" point="BOTTOM" relativeTo="SetAHNotify" relativePoint="TOP" /></Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" parentKey="Text" inherits="GameFontNormalSmall" text="" justifyH="LEFT">
+							<Anchors><Anchor x="10" point="LEFT" relativePoint="RIGHT" /></Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>OnClick_SetAfkNotify(self);</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="SetXPNotify" inherits="ChatConfigCheckButtonTemplate">
+				<Size x="25" y="25" />
+				<Anchors><Anchor y="-60" point="BOTTOM" relativeTo="SetAfkNotify" relativePoint="TOP" /></Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" parentKey="Text" inherits="GameFontNormalSmall" text="" justifyH="LEFT">
+							<Anchors><Anchor x="10" point="LEFT" relativePoint="RIGHT" /></Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>OnClick_SetXPNotify(self);</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="BtnRestoreDef" inherits="MagicButtonTemplate" enableMouse="true" enableMouseClicks="true" text="">
+				<Size x="120" y="20" />
+				<Anchors><Anchor x="-5" y="5" point="BOTTOMRIGHT" relativeTo="SettingsFrame" relativePoint="BOTTOMRIGHT" /></Anchors>
+				<Scripts>
+					<OnLoad>self:RegisterForClicks("AnyUp")</OnLoad>
+					<OnClick function="OnClick_RestoreDef" />
+				</Scripts>
+			</Button>
+			<Button name="BtnSaveReload" inherits="MagicButtonTemplate" enableMouse="true" enableMouseClicks="true" text="">
+				<Size x="110" y="20" />
+				<Anchors><Anchor x="-5" y="0" point="RIGHT" relativeTo="BtnRestoreDef" relativePoint="LEFT" /></Anchors>
+				<Scripts>
+					<OnLoad>self:RegisterForClicks("AnyUp")</OnLoad>
+					<OnClick function="OnClick_SaveReload" />
+				</Scripts>
+			</Button>
+			<Slider name="IconSizeSlider" inherits="UISliderTemplateWithLabels" drawLayer="OVERLAY" enableMouse="true" minValue="5" maxValue="50" defaultValue="24" orientation="HORIZONTAL">
+				<Size x="250" y="15" />
+				<Anchors><Anchor y="-35" x="10" point="TOPLEFT" relativeTo="SetXPNotify" relativePoint="BOTTOMLEFT" /></Anchors>
+				<HitRectInsets left="0" right="0" top="-10" bottom="-10"/>
+				
+				<Scripts>
+					<OnLoad function="IconSizeSlider_OnLoad"/><OnShow function="IconSizeSlider_OnShow"/>
+					<OnValueChanged>IconSizeSlider_OnValueChanged(self, value,user);</OnValueChanged>
+				</Scripts> 
+			</Slider>
+			<Button name="BtnLocaleSelectEN" inherits="MagicButtonTemplate" enableMouse="true" enableMouseClicks="true" text="English">
+				<Size x="110" y="25" />		<Anchors><Anchor x="0" y="20" point="BOTTOMLEFT" relativeTo="BtnSaveReload" relativePoint="TOPLEFT" /></Anchors>
+				<Scripts><OnClick>Select_Lang("EN");</OnClick></Scripts>
+           </Button>
+			<Button name="BtnLocaleSelectPL" inherits="MagicButtonTemplate" enableMouse="true" enableMouseClicks="true" text="Polski">
+				<Size x="110" y="25" />		<Anchors><Anchor x="0" y="20" point="BOTTOMLEFT" relativeTo="BtnRestoreDef" relativePoint="TOPLEFT" /></Anchors>
+				<Scripts><OnClick>Select_Lang("PL");</OnClick></Scripts>
+           </Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self.name = "DBGR";
+				local category, layout = _G.Settings.RegisterCanvasLayoutCategory(self, self.name)
+				_G.Settings.RegisterAddOnCategory(category)
+			</OnLoad>
+			<OnShow function="OnShow_SettingsFrame" />
+		</Scripts>
+	</Frame>
+</Ui>
