@@ -13,3 +13,12 @@
 ### Mailbox Improvements
 
 * Fixed the mail summary popup so it now closes together with the mailbox window, including when closed with Escape.
+
+---
+
+## Version 12.5.6 - 01/09/2026 15:15
+
+### Settings Improvements
+
+* Updated `/dbgr config` to open the addon settings directly in the Blizzard Settings panel.
+* Fixed compatibility with the current Retail addon settings API by using the registered category ID instead of the category name.

@@ -509,7 +509,7 @@ function onUpdate(self, elapsed)
 		return
 	end
 
-	print("[ DEBUG ]: \ttest onUpdate");
+	print("[ DEBUG ]: 	test onUpdate");
 
 	UpdateTimer = 0
 end
@@ -574,7 +574,7 @@ function SlashCmdList.DBFRAME(msg, editbox)
 	end
 
 	if msg == "config" then
-		SettingsFrame:Show();
+		Settings.OpenToCategory(SettingsFrame.categoryID);
 	end
 
 	if msg == "playtime" then

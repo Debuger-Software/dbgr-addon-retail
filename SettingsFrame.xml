@@ -102,11 +102,12 @@
            </Button>
 		</Frames>
 		<Scripts>
-			<OnLoad>
-				self.name = "DBGR";
-				local category, layout = _G.Settings.RegisterCanvasLayoutCategory(self, self.name)
-				_G.Settings.RegisterAddOnCategory(category)
-			</OnLoad>
+		<OnLoad>
+			self.name = "DBGR";
+			local category, layout = _G.Settings.RegisterCanvasLayoutCategory(self, self.name)
+			_G.Settings.RegisterAddOnCategory(category)
+			self.categoryID = category:GetID()
+		</OnLoad>
 			<OnShow function="OnShow_SettingsFrame" />
 		</Scripts>
 	</Frame>

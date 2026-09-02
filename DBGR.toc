@@ -2,18 +2,18 @@
 ## Title: DBGR
 ## Author: Debuger
 ## IconTexture: Interface\AddOns\DBGR\img\d
-## Notes: |cFFFF000D |r|cFF00FF00B |r|cFF0000FFG |r|cFFFFFF00R |r       12.5.5
-## Version: 12.5.5
+## Notes: |cFFFF000D |r|cFF00FF00B |r|cFF0000FFG |r|cFFFFFF00R |r       12.5.6
+## Version: 12.5.6
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariables: DBGROPT
 ## X-Category: Miscellaneous
 ## X-Curse-Project-ID: 1028809
-## X-Date: 31-08-2026 15:23:00
+## X-Date: 01-09-2026 15:23:00
 ## X-eMail: debuger@debuger.eu
 ## X-License: GPL3
 ## X-Release: Main
-## X-Revision: 12.5.5
+## X-Revision: 12.5.6
 ## X-Website: https://www.curseforge.com/wow/addons/dbgr
 
 
