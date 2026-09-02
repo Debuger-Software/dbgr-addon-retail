@@ -140,6 +140,42 @@ local function CheckUnspentTalents()
 end
 
 
+local function CheckDKWeaponRune()
+	local _, class = UnitClass("player")
+
+	if class ~= "DEATHKNIGHT" then
+		return
+	end
+
+	local missingRune = {}
+
+	for _, slot in ipairs({16, 17}) do
+		local weaponLink = GetInventoryItemLink("player", slot)
+
+		if weaponLink then
+			local enchantID = tonumber(weaponLink:match("item:%d+:(%-?%d+)")) or 0
+
+			if enchantID == 0 then
+				tinsert(missingRune, weaponLink)
+			end
+		end
+	end
+
+	if #missingRune > 0 then
+		MsgBox:showMsgBox(
+			_L("NO_RUNE_ON_WEAPON") .. ":\n" .. table.concat(missingRune, "\n"),
+			_L("RUNEFORGING")
+		)
+
+		MsgBox.opener = "DK_RUNE"
+	else
+		if MsgBox:IsShown() and MsgBox.opener == "DK_RUNE" then
+			MsgBox:Hide()
+		end
+	end
+end
+
+
 local function HookMailFrame()
 	if MailFrame and not MailFrame.DBGRHooked then
 		MailFrame:HookScript("OnHide", function()
@@ -189,6 +225,16 @@ local function eventHandler(self, event, ...)
 					LOGO(20)
 				)
 			);
+
+			C_Timer.After(1, CheckDKWeaponRune)
+		end
+
+
+	elseif event == "PLAYER_EQUIPMENT_CHANGED" then
+		local slot = ...
+
+		if slot == 16 or slot == 17 then
+			C_Timer.After(0.5, CheckDKWeaponRune)
 		end
 
 
@@ -523,6 +569,7 @@ local	frame = CreateFrame("Frame", "DBGRframe")
 		frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 		frame:RegisterEvent("CHAT_MSG_COMBAT_XP_GAIN")
 		frame:RegisterEvent("PLAYER_LEVEL_UP")
+		frame:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
 		frame:RegisterEvent("PLAYER_FLAGS_CHANGED")
 		frame:RegisterEvent("TIME_PLAYED_MSG")
 		frame:RegisterEvent("MAIL_SHOW")

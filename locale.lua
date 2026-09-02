@@ -22,6 +22,8 @@ _Lang["EN"] = {
     SET_BTN_SAVE            = "Save & Reload",
     TOTAL                   = "Total",
     PLAY_TIME_STATS         = "Play time statistics",
+    NO_RUNE_ON_WEAPON       = "No rune on equipped weapon",
+    RUNEFORGING             = "Runeforging",
 };
 _Lang["PL"] = {
     MAILBOX                 = "SKRZYNKA POCZTOWA",
@@ -45,6 +47,8 @@ _Lang["PL"] = {
     SET_BTN_SAVE            = "Zapisz",
     TOTAL                   = "Razem",
     PLAY_TIME_STATS         = "Statystyki czasu gry",
+    NO_RUNE_ON_WEAPON       = "Brak runy na aktualnej broni",
+    RUNEFORGING             = "Runowanie broni",
 };
 
 function lang_exist(lang)
