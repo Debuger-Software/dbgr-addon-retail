@@ -12,6 +12,7 @@ It was originally created for personal use and has been developed and maintained
 - Delayed AFK warning
 - Auction House notifications
 - Mailbox information
+- Incoming guild chat message notifications
 - Unspent talent point warning
 - Death Knight Runeforging warning for weapons without a rune
 - Integrated addon settings in the Blizzard Settings panel
