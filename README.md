@@ -9,11 +9,12 @@ It was originally created for personal use and has been developed and maintained
 - Loot message improvements with item icons
 - Experience gain information
 - Playtime statistics
-- AFK warning
+- Delayed AFK warning
 - Auction House notifications
 - Mailbox information
 - Unspent talent point warning
-- Basic addon settings panel
+- Death Knight Runeforging warning for weapons without a rune
+- Integrated addon settings in the Blizzard Settings panel
 - English and Polish localization
 - Custom UI message frame
 - Optional notification sound
