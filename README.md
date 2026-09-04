@@ -53,7 +53,7 @@ After installation, restart the game or reload the interface.
 /dbgr
 ```
 
-Opens the main DBGR window.
+Shows the most recently displayed DBGR message box and its last message.
 
 ```text
 /dbgr config
