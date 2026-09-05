@@ -24,6 +24,9 @@ _Lang["EN"] = {
     PLAY_TIME_STATS         = "Play time statistics",
     NO_RUNE_ON_WEAPON       = "No rune on equipped weapon",
     RUNEFORGING             = "Runeforging",
+    WELCOME                 = "Hello, useful information will be displayed here during the game.",
+    GUILD_MSG_TITLE         = "Guild message",
+    GUILD_MESSAGE           = "Message from %s\n\n%s",
 };
 _Lang["PL"] = {
     MAILBOX                 = "SKRZYNKA POCZTOWA",
@@ -49,6 +52,9 @@ _Lang["PL"] = {
     PLAY_TIME_STATS         = "Statystyki czasu gry",
     NO_RUNE_ON_WEAPON       = "Brak runy na aktualnej broni",
     RUNEFORGING             = "Runowanie broni",
+    WELCOME                 = "Witaj, tutaj beda wyswietlaly sie przydatne informacje podczas gry",
+    GUILD_MSG_TITLE         = "Wiadomosc z gildii",
+    GUILD_MESSAGE           = "Od %s\n\n%s",
 };
 
 function lang_exist(lang)

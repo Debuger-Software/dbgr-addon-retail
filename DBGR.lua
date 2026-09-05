@@ -431,6 +431,12 @@ local function eventHandler(self, event, ...)
 			end)
 
 		end
+	elseif event == "CHAT_MSG_GUILD" then
+		local message, sender = ...
+		sender = Ambiguate(sender, "short")
+
+		MsgBox.opener = "GUILD"
+		MsgBox:showMsgBox(format(_L("GUILD_MESSAGE"), sender, message),_L("GUILD_MSG_TITLE"))
 	end
 end
 
@@ -577,6 +583,7 @@ local	frame = CreateFrame("Frame", "DBGRframe")
 		frame:RegisterEvent("MAIL_CLOSED")
 		frame:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 		frame:RegisterEvent("AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION")
+		frame:RegisterEvent("CHAT_MSG_GUILD")
 
 		frame:SetScript("OnEvent", eventHandler)
 
@@ -617,7 +624,12 @@ SLASH_DBFRAME1 = "/dbgr"
 function SlashCmdList.DBFRAME(msg, editbox)
 
 	if msg == "" then
-		MsgBox:Show();
+		if not MsgBox.opener or MsgBox.opener == "" then
+			MsgBox:showMsgBox(_L("WELCOME"), "DBGR");
+			MsgBox.opener = "WELCOME";
+		else
+			MsgBox:Show();
+		end
 	end
 
 	if msg == "config" then

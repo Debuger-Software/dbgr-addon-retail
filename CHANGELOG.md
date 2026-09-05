@@ -35,3 +35,20 @@
 
 * Added a warning when a Death Knight equips a weapon without a rune.
 * The warning is automatically cleared after equipping a properly runed weapon.
+
+---
+
+## Version 12.5.8 - 04/09/2026
+
+### Message Box Improvements
+
+* Updated `/dbgr` so it no longer opens an empty message box when no previous DBGR message has been displayed.
+* Added a welcome message shown on first use of `/dbgr` when there is no previous message to restore.
+
+### Guild Messages
+
+* Added support for incoming guild chat messages using the `CHAT_MSG_GUILD` event.
+* Guild messages are now displayed in the DBGR message box with the sender name and message content.
+* Sender names are shortened with `Ambiguate(..., "short")` before being displayed.
+* Added localized `GUILD_MSG_TITLE` and `GUILD_MESSAGE` strings for guild message notifications.
+
