@@ -8,6 +8,7 @@ It was originally created for personal use and has been developed and maintained
 
 - Loot message improvements with item icons
 - Experience gain information
+- Current Chromie Time timeline information in the player portrait tooltip.
 - Playtime statistics
 - Delayed AFK warning
 - Auction House notifications
@@ -67,6 +68,12 @@ Opens the addon settings.
 ```
 
 Displays character playtime statistics.
+
+```text
+/dbgr chromie
+```
+
+Show player currently selected Chromie Timeline.
 
 ## Source Code
 

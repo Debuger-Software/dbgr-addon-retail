@@ -1,3 +1,11 @@
+## Version 12.6.0 - 03/10/2026
+
+### Chromie timeline info
+
+* Added `/dbgr chromie` command to check player currently selected Chromie Timeline.
+* Added current Chromie Time timeline information to the player portrait tooltip.
+
+---
 ## Version 12.5.9 - 26/09/2026
 
 ### Compatibility with 12.1.5 (updated TOC)

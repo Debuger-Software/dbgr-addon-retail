@@ -188,6 +188,44 @@ local function HookMailFrame()
 	end
 end
 
+local function GetCurrentChromieTimeline()
+if not C_PlayerInfo.IsPlayerInChromieTime() then
+	return nil
+	end
+
+	local options = C_ChromieTime.GetChromieTimeExpansionOptions()
+
+	for _, info in ipairs(options) do
+		if info.alreadyOn then
+			return info.name
+		end
+	end
+
+	return nil
+end
+
+local function AddChromieTimeToTooltip(tooltip)
+if tooltip ~= GameTooltip then
+	return
+	end
+
+	local _, unit = tooltip:GetUnit()
+
+	if not unit or not UnitIsUnit(unit, "player") then
+		return
+		end
+
+		local timeline = GetCurrentChromieTimeline()
+
+		if timeline then
+			tooltip:AddLine("Chromie Time: " .. timeline, 0.4, 0.8, 1)
+			end
+			end
+
+			TooltipDataProcessor.AddTooltipPostCall(
+				Enum.TooltipDataType.Unit,
+				AddChromieTimeToTooltip
+			)
 
 local function eventHandler(self, event, ...)
 
@@ -227,6 +265,8 @@ local function eventHandler(self, event, ...)
 			);
 
 			C_Timer.After(1, CheckDKWeaponRune)
+			C_Timer.After(1, AddChromieTimeToTooltip)
+
 		end
 
 
@@ -647,4 +687,8 @@ function SlashCmdList.DBFRAME(msg, editbox)
 		end
 	end
 
+	if msg == "chromie" then
+		local timeline = GetCurrentChromieTimeline()
+		print(timeline or "Brak Chromie Time")
+	end
 end
