@@ -1,6 +1,6 @@
 # DBGR
 
-DBGR is a lightweight World of Warcraft Retail addon that provides a small collection of quality-of-life features and notifications.
+DBGR is a lightweight World of Warcraft Retail & Forever addon that provides a small collection of quality-of-life features and notifications.
 
 It was originally created for personal use and has been developed and maintained over time as a compact utility addon without unnecessary dependencies or large frameworks.
 
