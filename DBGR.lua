@@ -1,6 +1,10 @@
 local ADDON_NAME = "DBGR"
 local ADDON_VERSION = format("%s rev.%s", C_AddOns.GetAddOnMetadata(ADDON_NAME, "Version"), C_AddOns.GetAddOnMetadata(ADDON_NAME, "X-Revision"))
 local ADDON_REL_TYPE = C_AddOns.GetAddOnMetadata(ADDON_NAME, "X-Release")
+local version, build, date, interface = GetBuildInfo()
+
+local isForever = interface >= 16000 and interface < 17000
+local isRetail  = WOW_PROJECT_ID == WOW_PROJECT_MAINLINE and not isForever
 
 local TIME_REQ = false;
 local UpdateTimer = 0;

@@ -1,3 +1,9 @@
+## Version 12.7.0 - 09/11/2026
+
+### Compatibility with Forever 
+
+
+---
 ## Version 12.6.0 - 03/10/2026
 
 ### Chromie timeline info
