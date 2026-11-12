@@ -1,21 +1,20 @@
-## Interface: 11508, 11509, 16001, 120105, 120007, 120005, 120001
+## Interface: 16001, 120105, 120007, 120005, 120001
 ## Title: DBGR
 ## Author: Debuger
 ## IconTexture: Interface\AddOns\DBGR\img\d
-## Notes: |cFFFF000D |r|cFF00FF00B |r|cFF0000FFG |r|cFFFFFF00R |r       12.7.0
-## Version: 12.7.0
+## Notes: |TInterface/Addons/DBGR/img/d:14:14|t |cFFFF0000D |r|cFF00FF00B |r|cFF0000FFG |r|cFFFFFF00R |r|TInterface/Addons/DBGR/img/d:14:14|t       12.7.1
+## Version: 12.7.1
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariables: DBGROPT
 ## X-Category: Miscellaneous
 ## X-Curse-Project-ID: 1028809
-## X-Date: 09-11-2026 20:53:35
+## X-Date: 12-11-2026 16:02:00
 ## X-eMail: debuger@debuger.eu
 ## X-License: GPL3
 ## X-Release: Main
-## X-Revision: 12.7.0
+## X-Revision: 12.7.1
 ## X-Website: https://www.curseforge.com/wow/addons/dbgr
-## X-Credits: Debuger
 
 
 locale.lua

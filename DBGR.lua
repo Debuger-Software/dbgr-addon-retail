@@ -1,13 +1,14 @@
+---@diagnostic disable: undefined-global
 local ADDON_NAME = "DBGR"
 local ADDON_VERSION = format("%s rev.%s", C_AddOns.GetAddOnMetadata(ADDON_NAME, "Version"), C_AddOns.GetAddOnMetadata(ADDON_NAME, "X-Revision"))
 local ADDON_REL_TYPE = C_AddOns.GetAddOnMetadata(ADDON_NAME, "X-Release")
-local version, build, date, interface = GetBuildInfo()
 
+local _, _, _, interface = GetBuildInfo()
 local isForever = interface >= 16000 and interface < 17000
 local isRetail  = WOW_PROJECT_ID == WOW_PROJECT_MAINLINE and not isForever
 
 local TIME_REQ = false;
-local UpdateTimer = 0;
+-- local UpdateTimer = 0;
 local AFKTimer = nil;
 
 local LOGO = function(size)
@@ -78,7 +79,7 @@ end
 
 
 local function displayMailsInfo(self)
-	local numItems, totalItems = GetInboxNumItems();
+	local _, totalItems = GetInboxNumItems();
 	local numAttach, totalGold = CountItemsAndMoney(self);
 	local itemy, gold = " "," ";
 
@@ -550,7 +551,7 @@ function IconSizeSlider_OnShow()
 end
 
 
-function IconSizeSlider_OnValueChanged(self,value,user)
+function IconSizeSlider_OnValueChanged(self,value,_)
 
 	if DBGROPT == nil then
 		return
@@ -597,7 +598,7 @@ function Select_Lang(lang)
 	ReloadUI();
 end
 
-
+--[[
 function onUpdate(self, elapsed)
 	UpdateTimer = UpdateTimer + elapsed
 
@@ -609,6 +610,7 @@ function onUpdate(self, elapsed)
 
 	UpdateTimer = 0
 end
+]]
 
 
 -- ===================================================================================================================================================================================================
@@ -665,7 +667,7 @@ ChatFrame1EditBox:SetAltArrowKeyMode(false);
 
 SLASH_DBFRAME1 = "/dbgr"
 
-function SlashCmdList.DBFRAME(msg, editbox)
+function SlashCmdList.DBFRAME(msg, _)
 
 	if msg == "" then
 		if not MsgBox.opener or MsgBox.opener == "" then

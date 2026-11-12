@@ -1,3 +1,9 @@
+## Version 12.7.1 - 12/11/2026
+
+### Some bug fixes
+
+
+---
 ## Version 12.7.0 - 09/11/2026
 
 ### Compatibility with Forever 
